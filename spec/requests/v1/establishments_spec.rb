@@ -40,7 +40,6 @@ RSpec.describe "V1::Establishments", type: :request do
 
 
   private
-
   def establishment_params
     {
       "establishment": {
