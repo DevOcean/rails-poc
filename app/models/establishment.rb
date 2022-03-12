@@ -7,4 +7,5 @@ class Establishment < ApplicationRecord
   # Nested attributes
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :users
+  has_many :managers, through: :users
 end
