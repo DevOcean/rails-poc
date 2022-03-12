@@ -27,6 +27,12 @@ Missing part :
 
 What do you think about created models? Are they __safe__? How can you test it better, if you can?
 
+* _Depending on what kind of information the `Manager` model is going to hold in the future (right now only has a reference to the `User`), I'd chosen to use a 'role' attribute (or something similar) on the `User` model and create a scope within the `Establishment` to facilitate quering for it. This simplifies the schema, and the associations between models._
+
+* _There is no validation on the actual attributes (i.e. email or phone number format), allowing to have multiple ways to save the information in the database which can be a problem in the future._
+
+* _Since the actual models only contain associations (and no logic or custom methods) there is nothing else to test besides that._
+
 ## Controller
 
 There is a single endpoint to:
@@ -37,6 +43,12 @@ There is a single endpoint to:
 * Associate an address to an establishment
 
 This is handle by a service. Is it __safe__? Improve it. Same for the tests. 
+
+_This enpoint is not safe considering:_
+* _There is no authentication check on the endpoint_
+* _There is no CSRF check on the controller_
+
+_This means that everyone that knows how to access it, could create Establishments, Users, Addresses._
 
 ## Queries
 
