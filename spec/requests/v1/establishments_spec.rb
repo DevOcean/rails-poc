@@ -43,16 +43,21 @@ RSpec.describe "V1::Establishments", type: :request do
 
   def establishment_params
     {
-      "establishment": {
-          "name": "Test Establishment",
-          "registration_number": "TEST1",
-          "address_attributes": {
-              "address1": "Booth no.92",
-              "zip": "sector 23",
-              "city": "test",
-              "state": "Alaska",
-              "country": "United States"
-          }
+      "name": "Test Establishment",
+      "registration_number": "TEST1",
+      "address_attributes": {
+          "address1": "Booth no.92",
+          "zip": "sector 23",
+          "city": "test",
+          "state": "Alaska",
+          "country": "United States"
+      },
+      "users_attributes": [{
+        "firstname": "Bart",
+        "lastname": "Simpson",
+        "date_of_birth": "1981-02-23",
+        "email": "bart@simpson.me",
+        "phone": "(590) 352-1001"}]
       },
       format: :json
     }
